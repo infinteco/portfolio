@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { useReveal } from '../hooks/useReveal'
+import CountUp from '../components/CountUp'
 import { about, experience, skills, certs } from '../data/content'
 
 // Reveal timeline items as they scroll into view. Reduced-motion (or no
@@ -34,7 +36,7 @@ function TimelineItem({ item }) {
         <div className="tl-metrics">
           {item.metrics.map((m) => (
             <div className="m" key={m.caption}>
-              <div className="num">{m.value}<span className="u">{m.unit}</span></div>
+              <div className="num"><CountUp value={m.value} />{m.unit && <span className="u">{m.unit}</span>}</div>
               <div className="cap">{m.caption}</div>
             </div>
           ))}
@@ -49,6 +51,8 @@ export default function About() {
     'About — Harsh Gupta',
     'Harsh Gupta: B.Tech in Artificial Intelligence, now shipping production AI web apps. Experience, skills and certifications.'
   )
+  const skillsRef = useReveal()
+  const certsRef = useReveal()
 
   return (
     <div className="page">
@@ -79,7 +83,7 @@ export default function About() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head"><span className="idx">03</span><h2>Skills</h2></div>
-          <div className="skills-grid">
+          <div className="skills-grid reveal-up" ref={skillsRef}>
             {skills.map((g) => (
               <div className="skgroup" key={g.group}>
                 <h3><span className="gi">›</span> {g.group}</h3>
@@ -94,13 +98,13 @@ export default function About() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head"><span className="idx">04</span><h2>Certifications</h2></div>
-          <div className="certs">
+          <div className="certs reveal-up" ref={certsRef}>
             {certs.map((c) => (
               <div className={'cert' + (c.highlight ? ' hi' : '')} key={c.name}>
                 <div className="ci">{c.issuer}</div>
                 <div className="cn">{c.name}</div>
                 {c.highlight && (
-                  <div className="pct"><span className="num">{c.highlight}</span><span className="u">{c.highlightUnit}</span></div>
+                  <div className="pct"><CountUp value={c.highlight} className="num" /><span className="u">{c.highlightUnit}</span></div>
                 )}
               </div>
             ))}

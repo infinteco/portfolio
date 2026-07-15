@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { useReveal } from '../hooks/useReveal'
 import Recommender from '../components/Recommender'
+import CountUp from '../components/CountUp'
 import { profile, proofNumbers, portrait } from '../data/content'
 
 export default function Home() {
@@ -10,6 +12,7 @@ export default function Home() {
   )
 
   const c = profile.current
+  const proofRef = useReveal()
 
   return (
     <section className="page-lead hero" aria-labelledby="hero-name">
@@ -46,10 +49,10 @@ export default function Home() {
         <Recommender />
 
         {/* Three proof numbers pulled forward, each a path into the site */}
-        <div className="proof" aria-label="Highlights">
+        <div className="proof reveal-up" ref={proofRef} aria-label="Highlights">
           {proofNumbers.map((p) => (
             <Link key={p.label} to={p.to}>
-              <span className="pv"><span className="num">{p.value}</span><span className="u">{p.unit}</span></span>
+              <span className="pv"><CountUp value={p.value} className="num" /><span className="u">{p.unit}</span></span>
               <div className="pl">{p.label}</div>
               <div className="ps">{p.source}</div>
             </Link>

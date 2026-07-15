@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { useReveal } from '../hooks/useReveal'
+import CountUp from '../components/CountUp'
 import { projects, projectFilters } from '../data/content'
 
 function ProjectCard({ p }) {
@@ -15,7 +17,7 @@ function ProjectCard({ p }) {
       <p className="c-prob">{p.problem}</p>
 
       <div className="c-metric">
-        <span className="num">{p.metric.value}</span>
+        <CountUp value={p.metric.value} className="num" />
         {p.metric.unit && <span className="unit">{p.metric.unit}</span>}
         <span className="cap">{p.metric.caption}</span>
       </div>
@@ -56,6 +58,7 @@ export default function Work() {
   )
 
   const [filter, setFilter] = useState('all')
+  const gridRef = useReveal()
   const shown = useMemo(
     () => projects.filter((p) => filter === 'all' || p.cats.includes(filter)),
     [filter]
@@ -91,7 +94,7 @@ export default function Work() {
           </span>
         </div>
 
-        <div className="proj-grid">
+        <div className="proj-grid reveal-up" ref={gridRef}>
           {shown.map((p) => <ProjectCard key={p.id} p={p} />)}
         </div>
       </div>
