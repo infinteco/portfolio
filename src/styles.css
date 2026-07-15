@@ -129,7 +129,9 @@ h1,h2,h3,h4 { font-family:"Space Grotesk", sans-serif; font-weight:600; margin:0
 .portrait { width:100%; height:clamp(360px, 52vh, 560px); object-fit:cover; object-position:50% 16%; filter:grayscale(1) contrast(1.06); mix-blend-mode:multiply; }
 .portrait-tag { position:absolute; left:0; bottom:0; background:var(--accent); color:#fff; font-family:"JetBrains Mono",monospace;
   font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; padding:0.45rem 0.7rem; }
-@media (max-width:900px){ .portrait-panel { max-width:340px; } }
+/* Stacked hero (tablet/phone): center the portrait and let it fill more width so
+   there's no dead space to its right. On phones it becomes full-column width. */
+@media (max-width:900px){ .portrait-panel { max-width:440px; margin-inline:auto; } }
 
 /* proof numbers strip */
 .proof { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:clamp(2.5rem,5vw,4rem); }
