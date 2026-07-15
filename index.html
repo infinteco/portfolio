@@ -13,6 +13,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
+    <!-- Initial loading state: covers the blank #root until the React bundle mounts.
+         Self-contained (own styles) so it works before the app CSS loads. React's
+         createRoot().render() replaces #root's contents, removing this automatically. -->
+    <style>
+      #root .app-loading {
+        position: fixed; inset: 0; z-index: 1;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.9rem;
+        background: #FBFAF8; color: #16130F;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+      }
+      .app-loading__dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #D8351A;
+        animation: app-pulse 1s ease-in-out infinite; }
+      .app-loading__name { font-weight: 600; letter-spacing: -0.01em; font-size: 1.05rem; opacity: 0.85; }
+      @keyframes app-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.5); opacity: 0.35; } }
+      @media (prefers-color-scheme: dark) {
+        #root .app-loading { background: #0E0D0C; color: #F1ECE4; }
+        .app-loading__dot { background: #FF6242; }
+      }
+      @media (prefers-reduced-motion: reduce) { .app-loading__dot { animation: none; } }
+    </style>
+
     <!--
       Second half of the GitHub Pages SPA shim (see public/404.html).
       If we arrived via the 404 redirect, the real path is encoded in the query
@@ -31,7 +52,12 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="app-loading" aria-hidden="true">
+        <span class="app-loading__dot"></span>
+        <span class="app-loading__name">Harsh Gupta</span>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
