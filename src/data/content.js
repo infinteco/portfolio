@@ -58,7 +58,7 @@ export const projects = [
     role: 'Built the recommender end to end — data, model, and the API that served it.',
     approach:
       'Vectorised movie metadata (genres, cast, keywords) with TF-IDF and ranked candidates by cosine similarity, exposed through a Flask API. Tuned the feature weighting to 92% top-k accuracy; the better matches drove a 60% lift in return visits.',
-    github: 'https://github.com/infinteco',
+    github: 'https://github.com/infinteco/movie-recommender',
   },
   {
     id: 'car',
@@ -72,7 +72,7 @@ export const projects = [
     role: 'Owned the pipeline end to end, from raw listings to a tuned, evaluated model.',
     approach:
       'Cleaned and encoded the data, engineered features (vehicle age, mileage bands, brand tiers), compared regressors, and tuned hyperparameters with cross-validation — cutting prediction error substantially against the baseline.',
-    github: 'https://github.com/infinteco',
+    github: 'https://github.com/infinteco/car-price-prediction',
   },
   {
     id: 'hospital',
@@ -86,7 +86,7 @@ export const projects = [
     role: 'Designed and built the backend and data model.',
     approach:
       'Modelled patients, doctors and appointments in MySQL, exposed full CRUD through Spring Boot with JDBC, and indexed the hot query paths — cutting data-retrieval time by 20%.',
-    github: 'https://github.com/infinteco',
+    github: 'https://github.com/infinteco/hospital-management',
   },
 ]
 
