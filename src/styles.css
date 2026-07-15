@@ -37,6 +37,21 @@ body {
                       'clip' (not 'hidden') doesn't create a scroll container, so position:sticky nav stays intact. */
 }
 ::selection { background:var(--sel); }
+
+/* ------------------------------------------------ CUSTOM SCROLLBAR ------------------------------------------------ */
+/* Replaces the default browser scroller. Native styling (no JS) so it stays fast
+   and keyboard/trackpad behaviour is untouched. Theme-aware; accent on hover. */
+html { scrollbar-width: thin; scrollbar-color: var(--faint) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--faint); border-radius: 999px;
+  border: 3px solid var(--bg); /* inset padding so the thumb reads as a slim pill */
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: transparent; }
+
 img { max-width:100%; display:block; }
 a { color:inherit; }
 button { font-family:inherit; }
