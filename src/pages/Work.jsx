@@ -54,7 +54,7 @@ function ProjectCard({ p }) {
 export default function Work() {
   useDocumentMeta(
     'Work — Harsh Gupta',
-    'Selected projects by Harsh Gupta across AI/ML, backend and data: a content-based movie recommender, a car-price ML pipeline, and a Spring Boot hospital system.'
+    'Selected projects by Harsh Gupta across AI/ML, backend and data: an XGBoost used-car price ML service, a Spring Boot hospital system, and a content-based movie recommender.'
   )
 
   const [filter, setFilter] = useState('all')

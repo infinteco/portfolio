@@ -74,7 +74,7 @@ export default function Recommender() {
       </div>
 
       <p className="rec-foot">
-        Same technique as my 92%-accuracy Movie Recommender — vectors &rarr; cosine similarity &rarr; ranking.
+        Same technique behind my Movie Recommendation System — vectors &rarr; cosine similarity &rarr; ranking.
       </p>
     </section>
   )

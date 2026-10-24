@@ -49,7 +49,7 @@ function TimelineItem({ item }) {
 export default function About() {
   useDocumentMeta(
     'About — Harsh Gupta',
-    'Harsh Gupta: B.Tech in Artificial Intelligence, now shipping production AI web apps. Experience, skills and certifications.'
+    'Harsh Gupta: B.Tech in Artificial Intelligence, now shipping AI evaluation pipelines and backend services. Experience, skills and certifications.'
   )
   const skillsRef = useReveal()
   const certsRef = useReveal()
@@ -61,7 +61,7 @@ export default function About() {
         <div className="sec-head"><span className="idx">01</span><h2>About</h2></div>
         <div className="about-grid">
           <p className="about-lead">
-            A <b>B.Tech in Artificial Intelligence</b>, now shipping production AI web apps.
+            A <b>B.Tech in Artificial Intelligence</b>, now shipping production AI tooling and backend services.
           </p>
           <div className="about-body">
             {about.map((para, i) => <p key={i}>{para}</p>)}

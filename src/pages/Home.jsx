@@ -7,8 +7,8 @@ import { profile, proofNumbers, portrait } from '../data/content'
 
 export default function Home() {
   useDocumentMeta(
-    'Harsh Gupta — Software Engineer, AI/ML + Backend',
-    'Harsh Gupta builds AI-driven web applications — backend APIs, ML pipelines, and the systems that connect them. Software Engineer at Ethara AI, Delhi NCR.'
+    'Harsh Gupta — Software Engineer, AI Engineering + Backend',
+    'Harsh Gupta builds reliable AI software — evaluation pipelines, ML services, and the backends behind them. Software Engineer at Ethara AI, Delhi NCR.'
   )
 
   const c = profile.current
@@ -25,7 +25,7 @@ export default function Home() {
             </p>
             <h1 id="hero-name">{profile.firstName}<br /><span className="last">{profile.lastName}</span></h1>
             <p className="pitch">
-              I build <b>AI-driven web applications</b> — backend APIs, ML pipelines, and the systems that connect them.
+              I build <b>reliable, scalable AI software</b> — evaluation pipelines, ML services, and the backends that make them useful.
             </p>
             <div className="hero-cta">
               <Link className="btn-link solid" to="/work">See the work <span className="arw" aria-hidden="true">→</span></Link>
